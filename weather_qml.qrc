@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>HomePage.qml</file>
+        <file>main.qml</file>
+        <file>NaviButton.qml</file>
+        <file>SwipeViewPage.qml</file>
+        <file>WeatherPage.qml</file>
+    </qresource>
+</RCC>
