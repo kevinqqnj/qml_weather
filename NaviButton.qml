@@ -11,7 +11,7 @@ AbstractButton {
     contentItem: Image {
         id: image
         fillMode: Image.Pad
-        sourceSize { width: 40; height: 40 } // ### TODO: resize the image
+        sourceSize { width: 40; height: 40 }
     }
 
     background: Rectangle {
@@ -23,7 +23,6 @@ AbstractButton {
         anchors.top: edge === Qt.BottomEdge ? button.top : undefined
         anchors.bottom: edge === Qt.TopEdge ? button.bottom : undefined
 
-//        color: settings.darkTheme ? UIStyle.colorQtGray3 : UIStyle.colorQtGray9
     }
 
     transform: Translate {

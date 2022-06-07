@@ -14,42 +14,42 @@ PathView {
     readonly property int radius: size / 2.4 //画Path圆的半径，越大图标离得越远
 
     snapMode: PathView.SnapToItem
-    anchors.fill: parent
+//    anchors.fill: parent
     model: ListModel {
         ListElement {
             name: qsTr("南京")
             icon: "images/nanjing.png"
-            cityId: 1
+            cityId: 101190101
         }
         ListElement {
             name: "西安"
             icon: "images/xi'an.png"
-            cityId: 2
+            cityId: 101110101
         }
         ListElement {
             name: "天津"
             icon: "images/tianjin.png"
-            cityId: 3
+            cityId: 101030100
         }
         ListElement {
             name: "武汉"
             icon: "images/wuhan.png"
-            cityId: 4
+            cityId: 101200101
         }
         ListElement {
             name: "成都"
             icon: "images/chengdu.png"
-            cityId: 5
+            cityId: 101270101
         }
         ListElement {
             name: "北京"
             icon: "images/beijing.png"
-            cityId: 6
+            cityId: 101010100
         }
         ListElement {
             name: "香港"
             icon: "images/hongkong.png"
-            cityId: 7
+            cityId: 101320101
         }
     }
     delegate: RoundButton {
@@ -71,7 +71,7 @@ PathView {
         }
 
         onClicked: {
-            console.log(`currIndex=${circularView.currentIndex}, index=${index}, id: ${name}`)
+            console.log(`currIndex=${circularView.currentIndex}, index=${index}, city: ${name}`)
             if (PathView.isCurrentItem){
                 settings.cityId = cityId
                 circularView.launched(cityId) }

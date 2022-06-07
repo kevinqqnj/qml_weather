@@ -4,21 +4,21 @@ import Qt.labs.settings
 
 
 ApplicationWindow {
-    id: window
+    id: root
     visible: true
     width: 450
     height: 800
     title: qsTr("小天气 App")
 
     property string page
+    property var weatherData: ({})
+    property bool isUpdating: false
+    signal updateWeather(int cityId)
 
     Settings {
         id: settings
-        property bool wireless
-        property bool bluetooth
         property int cityId
-        property bool darkTheme
-        property bool demoMode
+        property var savedWeatherData: ({})
     }
 
     property alias settings: settings // 全局变量
@@ -56,7 +56,12 @@ ApplicationWindow {
 
         initialItem: HomePage {
             // Qt6必须以function方式响应signal
-            onLaunched: (_) => stackView.push("WeatherPage.qml")
+            onLaunched: (cityId) => {
+                        updateWeather(cityId)
+                        console.log('waiting for py update...', JSON.stringify(settings.savedWeatherData))
+                        root.isUpdating = true
+                        stackView.push("WeatherPage.qml")
+                        }
         }
     }
 
